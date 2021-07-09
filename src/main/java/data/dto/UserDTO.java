@@ -3,12 +3,23 @@ package data.dto;
 public class UserDTO {
     private String email;
     private String area;
+    private String firstName;
+    private String lastName;
 
     public UserDTO(){}
+
     public UserDTO(String email, String area){
         this.email =email;
         this.area =area;
     }
+
+    public UserDTO(String email, String area, String firstName, String lastName){
+        this.email =email;
+        this.area =area;
+        this.firstName= firstName;
+        this.lastName= lastName;
+    }
+
 
     public String getEmail() {
         return email;
@@ -24,6 +35,22 @@ public class UserDTO {
 
     public void setArea(String area) {
         this.area = area;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
 

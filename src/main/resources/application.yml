@@ -1,0 +1,18 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 731364585730-c65kpnevooef2boo5s1takl3i5ogrdbl.apps.googleusercontent.com
+            clientSecret: e384n49S7d2QO2dvi64VXQxp
+            scope:
+              - email
+              - profile
+            hd: utec.edu.pe
+
+server:
+    port:
+      8080
+
+

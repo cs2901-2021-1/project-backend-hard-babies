@@ -28,6 +28,8 @@ public class UserService {
         var user = new User();
         user.setEmail(input.getEmail());
         user.setArea(input.getArea());
+        user.setFirstName(input.getFirstName());
+        user.setLastName(input.getLastName());
         return user;
     }
 
