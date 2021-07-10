@@ -1,6 +1,7 @@
 package data.dto;
 
 public class UserDTO {
+    private Long id;
     private String email;
     private String area;
     private String firstName;
@@ -20,6 +21,13 @@ public class UserDTO {
         this.lastName= lastName;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getEmail() {
         return email;

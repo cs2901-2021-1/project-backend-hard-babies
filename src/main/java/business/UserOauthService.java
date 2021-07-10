@@ -13,4 +13,6 @@ public class UserOauthService  extends DefaultOAuth2UserService {
         OAuth2User user  = super.loadUser(userRequest);
         return  new UserOauth(user);
     }
+
+
 }

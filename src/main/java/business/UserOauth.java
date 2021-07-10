@@ -1,5 +1,4 @@
 package business;
-
 import java.util.Collection;
 import java.util.Map;
 import org.springframework.security.core.GrantedAuthority;
@@ -24,15 +23,25 @@ public class UserOauth implements  OAuth2User {
     }
 
     @Override
-    public String getName() {
+    public String getName(){
         return oauth2User.getAttribute("name");
+    }
+
+    public String getFirstName() {
+        return oauth2User.getAttribute("given_name");
+    }
+
+    public String getLastName() {
+        return oauth2User.getAttribute("family_name");
     }
 
     public String getEmail() {
         return oauth2User.<String>getAttribute("email");
     }
+
+    public String getImageUrl(){
+        return oauth2User.getAttribute("picture");
+    }
 }
-
-
 
 

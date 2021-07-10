@@ -10,6 +10,10 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +28,27 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    private User getUser(UserDTO input) {
+    public void updateUser(String area, Long id) {
+        var user = findOneById(id);
+        user.setArea(area);
+        userRepository.save(user);
+    }
+
+    public User saveUser(UserDTO userDTO) {
+        try {
+            var user = new User();
+            user.setFirstName(userDTO.getFirstName());
+            user.setLastName(userDTO.getLastName());
+            user.setEmail(userDTO.getEmail());
+            user.setArea(userDTO.getArea());
+            return userRepository.save(user);
+        } catch (HttpClientErrorException exception) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST, "Invalid body", exception);
+        }
+    }
+
+    public User getUser(UserDTO input) {
         var user = new User();
         user.setEmail(input.getEmail());
         user.setArea(input.getArea());
@@ -33,15 +57,9 @@ public class UserService {
         return user;
     }
 
-    public User saveUser(UserDTO userDTO) {
-        try {
-            var user =  getUser(userDTO);
-            return userRepository.save(user);
-        } catch (HttpClientErrorException exception) {
-            throw new ResponseStatusException(
-                    HttpStatus.BAD_REQUEST, "Invalid body", exception);
-        }
-    }
+
+
+
 
     public User findOneById(Long id) {
         Optional<User> userOptional = userRepository.findById(id);
