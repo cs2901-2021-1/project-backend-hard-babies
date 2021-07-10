@@ -8,7 +8,7 @@
         <version>2.5.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.projection_utec</groupId>
+    <groupId>projection_enrollment_utec</groupId>
     <artifactId>project-backend-hard-babies</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>projection_utec</name>

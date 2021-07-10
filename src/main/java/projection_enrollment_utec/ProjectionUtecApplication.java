@@ -1,4 +1,4 @@
-package com.projection_utec;
+package projection_enrollment_utec;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
