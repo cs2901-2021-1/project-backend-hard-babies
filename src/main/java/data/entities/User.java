@@ -22,11 +22,6 @@ public class User {
     @Column(name = "area", updatable = true, length= GlobalConstants.DB_AREA_LENGTH )
     private String area;
 
-    @Column(name = "firstName", length = GlobalConstants.DB_FIRST_NAME_LENGTH )
-    private String firstName;
-
-    @Column(name = "lastName", length = GlobalConstants.DB_LAST_NAME_LENGTH )
-    private String lastName;
 
     public User(){}
 
@@ -58,22 +53,6 @@ public class User {
     }
 
     public void setArea(String area) { this.area = area; }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public String getPassword() {
         return password;

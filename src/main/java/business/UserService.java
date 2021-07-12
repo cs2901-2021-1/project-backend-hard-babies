@@ -34,8 +34,6 @@ public class UserService {
     public User saveUser(UserDTO userDTO) {
         try {
             var user = new User();
-            user.setFirstName(userDTO.getFirstName());
-            user.setLastName(userDTO.getLastName());
             user.setEmail(userDTO.getEmail());
             user.setArea(userDTO.getArea());
             return userRepository.save(user);
@@ -49,8 +47,6 @@ public class UserService {
         var user = new User();
         user.setEmail(input.getEmail());
         user.setArea(input.getArea());
-        user.setFirstName(input.getFirstName());
-        user.setLastName(input.getLastName());
         return user;
     }
 

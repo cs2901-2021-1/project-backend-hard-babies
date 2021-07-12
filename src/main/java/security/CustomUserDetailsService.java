@@ -22,7 +22,7 @@ public class CustomUserDetailsService implements UserDetailsService {
             throws UsernameNotFoundException {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() ->
-                        new UsernameNotFoundException("User not found with email : " + email)
+                        new UsernameNotFoundException("Usuario no encontrado, con email : " + email)
                 );
         //UserDTO userdto = new UserDTO(user.getEmail(), user.getArea(), user.getFirstName(), user.getLastName(), <password>);
         return UserPrincipal.create(user);
@@ -31,7 +31,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Transactional
     public UserDetails loadUserById(Long id) {
         User user = userRepository.findById(id).orElseThrow(
-                () -> new ResourceNotFoundException("User", "id", id)
+                () -> new ResourceNotFoundException("Usuario", "id", id)
         );
 
         return UserPrincipal.create(user);

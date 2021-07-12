@@ -4,8 +4,6 @@ public class UserDTO {
     private Long id;
     private String email;
     private String area;
-    private String firstName;
-    private String lastName;
     private String password;
 
     public UserDTO() {
@@ -16,11 +14,9 @@ public class UserDTO {
         this.area = area;
     }
 
-    public UserDTO(String email, String area, String firstName, String lastName, String password) {
+    public UserDTO(String email, String area,  String password) {
         this.email = email;
         this.area = area;
-        this.firstName = firstName;
-        this.lastName = lastName;
         this.password = password;
     }
 
@@ -54,22 +50,6 @@ public class UserDTO {
 
     public void setArea(String area) {
         this.area = area;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
 
