@@ -16,7 +16,7 @@ public class UserPrincipal implements OAuth2User, UserDetails {
     private String email;
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
-    private Map<String, Object> attributes;
+    private transient Map<String, Object> attributes;
 
     public UserPrincipal(Long id, String email, String password, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
@@ -53,7 +53,7 @@ public class UserPrincipal implements OAuth2User, UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return "testingUsername";
     }
 
    @Override
