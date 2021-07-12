@@ -6,19 +6,30 @@ public class UserDTO {
     private String area;
     private String firstName;
     private String lastName;
+    private String password;
 
-    public UserDTO(){}
-
-    public UserDTO(String email, String area){
-        this.email =email;
-        this.area =area;
+    public UserDTO() {
     }
 
-    public UserDTO(String email, String area, String firstName, String lastName){
-        this.email =email;
-        this.area =area;
-        this.firstName= firstName;
-        this.lastName= lastName;
+    public UserDTO(String email, String area) {
+        this.email = email;
+        this.area = area;
+    }
+
+    public UserDTO(String email, String area, String firstName, String lastName, String password) {
+        this.email = email;
+        this.area = area;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long getId() {
@@ -60,5 +71,7 @@ public class UserDTO {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+
 }
 

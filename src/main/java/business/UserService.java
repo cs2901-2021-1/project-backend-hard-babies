@@ -9,11 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.server.ResponseStatusException;
 
+
 import javax.transaction.Transactional;
-import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -57,15 +54,18 @@ public class UserService {
         return user;
     }
 
-
-
-
-
     public User findOneById(Long id) {
         Optional<User> userOptional = userRepository.findById(id);
         if (userOptional.isPresent()) return userOptional.get();
         else throw new ResponseStatusException(
                 HttpStatus.BAD_REQUEST, "User with id " + id + " doesn't exist!");
+    }
+
+    public User findOneByEmail(String email) {
+        Optional<User> userOptional = userRepository.findByEmail(email);
+        if (userOptional.isPresent()) return userOptional.get();
+        else throw new ResponseStatusException(
+                HttpStatus.BAD_REQUEST, "User with id " + email + " doesn't exist!");
     }
 
     public void eraseUserById(Long id){
