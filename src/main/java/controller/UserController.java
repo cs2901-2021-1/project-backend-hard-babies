@@ -28,32 +28,32 @@ public class UserController {
     }
 
     @PostMapping
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN')")
     public User postUser(@RequestBody UserDTO userDTO) {
         return userService.saveUser(userDTO);
     }
 
     @GetMapping("/all")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN')")
     public List<User> listAllUsers() {
         return userService.findAllUsers();
     }
 
 
     @PutMapping("/update/{area}/{id}")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN')")
     public void updateArea(@PathVariable String area, @PathVariable Long id) {
         userService.updateUser(area, id);
     }
 
     @GetMapping("/get/{id}")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN')")
     public User getUserById(@PathVariable Long id) {
         return userService.findOneById(id);
     }
 
     @DeleteMapping("/delete/{id}")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteUserById(@PathVariable Long id) {
         userService.eraseUserById(id);
     }
