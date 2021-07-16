@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.server.ResponseStatusException;
 
+
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -24,16 +25,17 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    private User getUser(UserDTO input) {
-        var user = new User();
-        user.setEmail(input.getEmail());
-        user.setArea(input.getArea());
-        return user;
+    public void updateUser(String area, Long id) {
+        var user = findOneById(id);
+        user.setArea(area);
+        userRepository.save(user);
     }
 
     public User saveUser(UserDTO userDTO) {
         try {
-            var user =  getUser(userDTO);
+            var user = new User();
+            user.setEmail(userDTO.getEmail());
+            user.setArea(userDTO.getArea());
             return userRepository.save(user);
         } catch (HttpClientErrorException exception) {
             throw new ResponseStatusException(
@@ -41,11 +43,25 @@ public class UserService {
         }
     }
 
+    public User getUser(UserDTO input) {
+        var user = new User();
+        user.setEmail(input.getEmail());
+        user.setArea(input.getArea());
+        return user;
+    }
+
     public User findOneById(Long id) {
         Optional<User> userOptional = userRepository.findById(id);
         if (userOptional.isPresent()) return userOptional.get();
         else throw new ResponseStatusException(
                 HttpStatus.BAD_REQUEST, "User with id " + id + " doesn't exist!");
+    }
+
+    public User findOneByEmail(String email) {
+        Optional<User> userOptional = userRepository.findByEmail(email);
+        if (userOptional.isPresent()) return userOptional.get();
+        else throw new ResponseStatusException(
+                HttpStatus.BAD_REQUEST, "User with id " + email + " doesn't exist!");
     }
 
     public void eraseUserById(Long id){
