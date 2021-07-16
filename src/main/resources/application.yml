@@ -7,7 +7,7 @@ spring:
             client-id:  731364585730-c65kpnevooef2boo5s1takl3i5ogrdbl.apps.googleusercontent.com
             clientSecret: e384n49S7d2QO2dvi64VXQxp
             #redirectUri: "http://localhost:8080/oauth2/callback/{registrationId}"
-            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            redirectUri: "https://api.cs.mrg.com.pe/api-sec02-group01/oauth2/callback/{registrationId}"
             scope:
               - email
               - profile
