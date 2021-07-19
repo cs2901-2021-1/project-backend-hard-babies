@@ -27,4 +27,4 @@ app:
     authorizedRedirectUris:
       - http://localhost:3000/oauth2/redirect
       - https://cs.mrg.com.pe/app-sec02-group01/oauth2/redirect
-      - https://project-frontend-hard-babies-bkkmakix1-hard-babies.vercel.app/oauth2/redirect
+      - https://project-frontend-hard-babies-pb75tmj4y-hard-babies.vercel.app/oauth2/redirect
