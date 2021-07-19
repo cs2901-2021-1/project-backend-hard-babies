@@ -1,6 +1,5 @@
 package security;
 
-import data.entities.User;
 import data.repositories.UserRepository;
 import exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +19,16 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Transactional
     public UserDetails loadUserByUsername(String email)
             throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(email)
+        var user = userRepository.findByEmail(email)
                 .orElseThrow(() ->
                         new UsernameNotFoundException("Usuario no encontrado, con email : " + email)
                 );
-        //UserDTO userdto = new UserDTO(user.getEmail(), user.getArea(), user.getFirstName(), user.getLastName(), <password>);
         return UserPrincipal.create(user);
     }
 
     @Transactional
     public UserDetails loadUserById(Long id) {
-        User user = userRepository.findById(id).orElseThrow(
+        var user = userRepository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Usuario", "id", id)
         );
 
