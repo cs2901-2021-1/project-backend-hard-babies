@@ -13,6 +13,6 @@ public class JsonParsingService implements  ParsingService{
 
     @Override
     public Object parse(String url){
-        return  restTemplate.getForObject(url, Object.class);
+        return  restTemplate.getForObject(url, Object.class) ;
     }
 }
