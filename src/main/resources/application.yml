@@ -26,5 +26,5 @@ app:
     # We're not using cookies because they won't work well in mobile clients.
     authorizedRedirectUris:
       - http://localhost:3000/oauth2/redirect
-      - https://cs.mrg.com.pe/app-sec02-group01/oauth2/redirect
+      - https://app-sec02-group01.cs.mrg.com.pe/oauth2/redirect
       - https://project-frontend-hard-babies-pb75tmj4y-hard-babies.vercel.app/oauth2/redirect
